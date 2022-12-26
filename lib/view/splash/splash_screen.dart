@@ -32,7 +32,8 @@ class SplashScreen extends StatelessWidget {
                   fontFamily: 'NovaSlim',
                   fontSize: 34,
                   fontWeight: FontWeight.w500),
-            )
+            ),
+           
           ],
         ),
       ),
