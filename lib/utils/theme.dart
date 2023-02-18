@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_shop_application/utils/constant.dart';
+import 'constant.dart';
 
 ThemeData lightTheme = ThemeData(
   fontFamily: 'OpenSans',

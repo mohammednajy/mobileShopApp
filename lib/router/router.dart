@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_shop_application/provider/onboarding_provider.dart';
-import 'package:mobile_shop_application/router/screen_name.dart';
-import 'package:mobile_shop_application/view/auth/login_screen.dart';
-import 'package:mobile_shop_application/view/auth/signup_screen.dart';
-import 'package:mobile_shop_application/view/onBoarding/onboarding_screen.dart';
-import 'package:mobile_shop_application/view/splash/splash_screen.dart';
+import 'package:mobile_shop_application/view/app/home_screen.dart';
+import '../provider/auth_provider.dart';
+import '../provider/onboarding_provider.dart';
+import 'screen_name.dart';
+import '../view/auth/login_screen.dart';
+import '../view/auth/signup_screen.dart';
+import '../view/onBoarding/onboarding_screen.dart';
+import '../view/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
-
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   dynamic result;
   switch (settings.name) {
@@ -22,7 +23,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       result = const SignUpScreen();
       break;
     case ScreenName.loginScreen:
-      result = const LoginScreen();
+      result = ChangeNotifierProvider(
+        create: (context) => AuthProvider(),
+        child: const LoginScreen());
+      break;
+       case ScreenName.homeScreen:
+      result = const HomeScreen();
       break;
   }
 

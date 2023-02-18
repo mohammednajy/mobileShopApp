@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mobile_shop_application/router/router_services.dart';
-import 'package:mobile_shop_application/router/screen_name.dart';
+import '../router/router_services.dart';
+import '../router/screen_name.dart';
 
 import '../utils/constant.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_shop_application/router/router_services.dart';
-import 'package:mobile_shop_application/router/screen_name.dart';
-import 'package:mobile_shop_application/utils/constant.dart';
+import '../../router/router_services.dart';
+import '../../router/screen_name.dart';
+import '../../utils/constant.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/onboarding_provider.dart';

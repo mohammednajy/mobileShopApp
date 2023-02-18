@@ -1,5 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+double kHeight(context) {
+  return MediaQuery.of(context).size.height;
+}
+
+double kWidth(context) {
+  return MediaQuery.of(context).size.width;
+}
 class SizeConfig {
   static late MediaQueryData _mediaQueryData;
   static late double screenWidth;

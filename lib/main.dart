@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_shop_application/router/router.dart';
-import 'package:mobile_shop_application/router/router_services.dart';
-import 'package:mobile_shop_application/router/screen_name.dart';
-import 'package:mobile_shop_application/utils/responsive.dart';
-import 'package:mobile_shop_application/utils/theme.dart';
+import 'router/router.dart';
+import 'router/router_services.dart';
+import 'router/screen_name.dart';
+import 'utils/helpar.dart';
+import 'utils/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -23,7 +23,6 @@ class MobileShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return DevicePreview(
         enabled: false,
         builder: (context) {
@@ -35,9 +34,10 @@ class MobileShopApp extends StatelessWidget {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
                   onGenerateRoute: onGenerateRoute,
-                  initialRoute: ScreenName.signUpScreen,
+                  initialRoute: ScreenName.loginScreen,
                   navigatorKey: AppRouter.navigatorKey,
                   theme: lightTheme,
+                  scaffoldMessengerKey: UtilsConfig.scaffoldKey,
                 );
               });
         });

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobile_shop_application/router/router_services.dart';
-import 'package:mobile_shop_application/router/screen_name.dart';
-import 'package:mobile_shop_application/utils/constant.dart';
+import '../../router/router_services.dart';
+import '../../router/screen_name.dart';
+import '../../utils/constant.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

@@ -3,12 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TextFieldCustom extends StatelessWidget {
   const TextFieldCustom({
+     this.controller,
     this.hintText,
     required this.icon,
+    this.validator,
     Key? key,
   }) : super(key: key);
   final String? hintText;
   final String icon;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,12 +23,15 @@ class TextFieldCustom extends StatelessWidget {
             blurRadius: 4)
       ]),
       child: TextFormField(
+        controller: controller,
+        validator:validator ,
         decoration: InputDecoration(
             prefixIcon: SvgPicture.asset(
               icon,
               fit: BoxFit.scaleDown,
             ),
             hintText: hintText,
+            
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(
@@ -35,18 +42,18 @@ class TextFieldCustom extends StatelessWidget {
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.green,
                 )),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.red,
               ),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.red,
               ),
             )),
