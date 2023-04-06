@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../data/localData/shared_pref.dart';
 import '../../router/router_services.dart';
 import '../../router/screen_name.dart';
 import '../../utils/constant.dart';
@@ -100,12 +102,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ))
                       : ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.green,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(22),
-                              ),
-                              fixedSize: const Size(double.infinity, 42)),
+                            primary: Colors.green,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(22),
+                            ),
+                            minimumSize: Size(
+                              140.w,
+                              42.h,
+                            ),
+                          ),
                           onPressed: () {
+                            SharedPrefController().setOnboarding();
                             AppRouter.goAndRemove(ScreenName.signUpScreen);
                           },
                           child: const Text(

@@ -1,0 +1,11 @@
+{
+    "hello":"Hello",
+    "welcome":"Welcome ",
+    "back":"back",
+    "password":"Password",
+    "forget_password":"Forget Password",
+    "login":"Log in",
+    "haven_not_an_account":"Haven't an account? ",
+    "singUp":"Sign Up"
+
+}

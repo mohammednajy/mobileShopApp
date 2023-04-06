@@ -4,15 +4,15 @@ import 'constant.dart';
 
 ThemeData lightTheme = ThemeData(
   fontFamily: 'OpenSans',
+  scaffoldBackgroundColor: const Color(0xFFE5E5E5),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: AppColor.blackDegree,
-      textStyle: const TextStyle(fontSize: 20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
-      ),
-      minimumSize: const Size(double.infinity,44)
-    ),
+        primary: AppColor.blackDegree,
+        textStyle: const TextStyle(fontSize: 20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+        minimumSize: const Size(double.infinity, 44)),
   ),
   appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(

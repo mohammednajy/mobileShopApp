@@ -14,4 +14,25 @@ class AuthApi {
       rethrow;
     }
   }
+
+  static Future<Response> singUp({
+    required String name,
+    required String phone,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      return await BaseClient().post(
+        EndPoints.registerEndPoint,
+        data: {
+          "name": name,
+          "phone": phone,
+          "email": email,
+          "password": password,
+        },
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

@@ -14,7 +14,7 @@ class UtilsConfig {
       backgroundColor: status ? Colors.green : Colors.black45,
     ));
   }
-
+ 
   static Future<bool?> showAlertDialog() async {
     bool? result = await showDialog(
         context: navigatorKey.currentContext!,

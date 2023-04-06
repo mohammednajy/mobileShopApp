@@ -22,7 +22,7 @@ class UserModel {
     required this.token,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
       status: map['status'] as bool,
       message: map['message'] as String,
@@ -35,5 +35,18 @@ class UserModel {
       credit: map['data']['credit'] as int,
       token: map['data']['token'] as String,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "email": email,
+      "phone": phone,
+      "image": image,
+      "points": points,
+      "credit": credit,
+      "token": token,
+    };
   }
 }

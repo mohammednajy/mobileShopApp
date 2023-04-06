@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile_shop_application/data/localData/shared_pref.dart';
 import '../../router/router_services.dart';
 import '../../router/screen_name.dart';
 import '../../utils/constant.dart';
@@ -11,7 +12,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
       const Duration(seconds: 2),
-      () => AppRouter.goAndRemove(ScreenName.onBoardingScreen),
+      () => SharedPrefController().getLogin()
+          ? AppRouter.goAndRemove(ScreenName.homeScreen)
+          : AppRouter.goAndRemove(ScreenName.onBoardingScreen),
     );
     return Scaffold(
       body: Center(
@@ -33,7 +36,6 @@ class SplashScreen extends StatelessWidget {
                   fontSize: 34,
                   fontWeight: FontWeight.w500),
             ),
-           
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'endpoints.dart';
+import 'interceptor/lang_interceptor.dart';
 
 class BaseClient {
   BaseClient._();
@@ -19,7 +20,7 @@ class BaseClient {
   ))
     ..interceptors.addAll(
       [
-        // ErrorInterceptor(),
+        LangInterceptor(),
         // LogInterceptor(
         //   responseBody: true,
         //   error: true,

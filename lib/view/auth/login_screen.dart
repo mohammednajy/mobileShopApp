@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../provider/auth_provider.dart';
 import '../../router/router_services.dart';
 import '../../router/screen_name.dart';
 import '../../utils/constant.dart';
+import '../../utils/locale_keys.g.dart';
 import '../shared/button/custome_elevated_button.dart';
 import '../shared/text/header_text_custom.dart';
 import '../shared/text/rich_text_custom.dart';
@@ -41,9 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Spacer(),
-              const HeaderTitleCustom(
-                leftText: 'Welcome',
-                rightText: ' back!',
+              HeaderTitleCustom(
+                leftText: LocaleKeys.welcome.tr(),
+                rightText: LocaleKeys.back.tr(),
                 size: 30,
               ),
               const SizedBox(
@@ -61,12 +63,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 14,
               ),
               TextFieldCustom(
+                obscureText: true,
                 controller: _passwordController,
                 validator: (passwordValue) {
                   return passwordValue!.isValidPassword;
                 },
                 icon: AssetPath.passwordIcon,
-                hintText: 'Password',
+                hintText: LocaleKeys.password.tr(),
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -77,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'Forget password?',
+                      '${LocaleKeys.forget_password.tr()} ?',
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall!
@@ -88,8 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               Consumer<AuthProvider>(
-                builder: (context, authProvider, child) =>
-                    CustomeElevatedButton(
+                builder: (context, authProvider, child) => CustomElevatedButton(
                   isLoading: authProvider.isLoading,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -98,16 +100,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           password: _passwordController.text);
                     }
                   },
-                  text: 'Log in',
+                  text: LocaleKeys.login.tr(),
                 ),
               ),
               const Spacer(),
               Center(
                 child: RichTextCustom(
-                  leftText: 'Haven’t an account?',
-                  rightText: ' Sign up',
+                  leftText: '${LocaleKeys.haven_not_an_account.tr()}?  ',
+                  rightText: LocaleKeys.singUp.tr(),
                   onTap: () {
-                    AppRouter.goAndRemove(ScreenName.signUpScreen);
+                    AppRouter.goTo(ScreenName.signUpScreen);
                   },
                 ),
               ),

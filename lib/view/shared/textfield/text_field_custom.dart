@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TextFieldCustom extends StatelessWidget {
   const TextFieldCustom({
-     this.controller,
+    this.controller,
     this.hintText,
+    this.obscureText = false,
     required this.icon,
     this.validator,
     Key? key,
@@ -13,6 +14,7 @@ class TextFieldCustom extends StatelessWidget {
   final String icon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,14 +26,14 @@ class TextFieldCustom extends StatelessWidget {
       ]),
       child: TextFormField(
         controller: controller,
-        validator:validator ,
+        validator: validator,
+        obscureText: obscureText,
         decoration: InputDecoration(
             prefixIcon: SvgPicture.asset(
               icon,
               fit: BoxFit.scaleDown,
             ),
             hintText: hintText,
-            
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(
