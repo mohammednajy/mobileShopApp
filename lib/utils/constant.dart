@@ -18,10 +18,14 @@ class AssetPath {
   static const String notificationIcon = '${baseIconUrl}notification_icon.png';
   static const String categoryIcon = '${baseIconUrl}category_icon.png';
   static const String searchIcon = '${baseIconUrl}search_icon.svg';
+  static const String favoriteIcon = '${baseIconUrl}favorite_icon.png';
+  static const String placeholder = '${baseIconUrl}placeholder.png';
+  static const String category = '${baseIconUrl}category.png';
 
   static const String onboardingImage1 = '${baseImageUrl}onboarding1.png';
   static const String onboardingImage2 = '${baseImageUrl}onboarding2.png';
   static const String onboardingImage3 = '${baseImageUrl}onboarding3.png';
+  static const String mobileImage = '${baseImageUrl}mobile_image.png';
 }
 
 class AppColor {

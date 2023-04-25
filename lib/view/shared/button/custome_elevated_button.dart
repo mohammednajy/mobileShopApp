@@ -15,8 +15,12 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         child: isLoading
-            ? const CircularProgressIndicator(
-                color: Colors.green,
+            ? const SizedBox(
+                height: 25,
+                width: 25,
+                child: CircularProgressIndicator(
+                  color: Colors.green,
+                ),
               )
             : Text(text));
   }

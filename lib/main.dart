@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:mobile_shop_application/data/localData/shared_pref.dart';
+import 'package:mobile_shop_application/provider/auth_provider.dart';
+import 'package:mobile_shop_application/provider/home_provider.dart';
+import 'package:mobile_shop_application/utils/locator.dart';
+import 'package:provider/provider.dart';
 import 'router/router.dart';
 import 'router/router_services.dart';
 import 'router/screen_name.dart';
@@ -13,6 +17,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+  setUp();
   await SharedPrefController().init();
   await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -21,14 +26,19 @@ Future<void> main(List<String> args) async {
   ]);
   runApp(
     EasyLocalization(
-      path: 'assets/translations',
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
-      fallbackLocale: const Locale('ar'),
-      child: const MobileShopApp(),
-    ),
+        path: 'assets/translations',
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        fallbackLocale: const Locale('ar'),
+        child: MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => AuthProvider()),
+            ChangeNotifierProvider(create: (context) => HomeProvider()),
+          ],
+          child: const MobileShopApp(),
+        )),
   );
 }
 
@@ -54,6 +64,7 @@ class MobileShopApp extends StatelessWidget {
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
               locale: context.locale,
+              // initialRoute: ScreenName.signUpScreen,
               initialRoute: SharedPrefController().getLogin()
                   ? ScreenName.homeScreen
                   : SharedPrefController().getOnboarding()

@@ -5,14 +5,10 @@ import '../base_client.dart';
 class AuthApi {
   static Future<Response> logIn(
       {required String email, required String password}) async {
-    try {
-      return await BaseClient().post(
-        EndPoints.loginEndPoint,
-        data: {"email": email, "password": password},
-      );
-    } catch (e) {
-      rethrow;
-    }
+    return await BaseClient().post(
+      EndPoints.loginEndPoint,
+      data: {"email": email, "password": password},
+    );
   }
 
   static Future<Response> singUp({

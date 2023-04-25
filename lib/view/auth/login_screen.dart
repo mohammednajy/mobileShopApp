@@ -92,8 +92,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Consumer<AuthProvider>(
                 builder: (context, authProvider, child) => CustomElevatedButton(
-                  isLoading: authProvider.isLoading,
+                  isLoading: authProvider.loading,
                   onPressed: () {
+                    print(authProvider.loading);
                     if (_formKey.currentState!.validate()) {
                       authProvider.login(
                           email: _emailController.text,

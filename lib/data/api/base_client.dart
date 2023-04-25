@@ -13,10 +13,10 @@ class BaseClient {
   }
 
   final dio = Dio(BaseOptions(
-    connectTimeout: EndPoints.connectTimeout,
+    connectTimeout: const Duration(seconds: 15),
     baseUrl: EndPoints.baseUrl,
     receiveDataWhenStatusError: true,
-    receiveTimeout: EndPoints.receiveTimeout,
+    receiveTimeout: const Duration(seconds: 15),
   ))
     ..interceptors.addAll(
       [
@@ -56,18 +56,14 @@ class BaseClient {
     void Function(int, int)? onSendProgress,
     void Function(int, int)? onReceiveProgress,
   }) async {
-    try {
-      return await dio.post(
-        path,
-        data: data,
-        queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress,
-      );
-    } catch (e) {
-      rethrow;
-    }
+    return await dio.post(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
   }
 }

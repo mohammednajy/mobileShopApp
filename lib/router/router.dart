@@ -26,21 +26,15 @@ class AppRouterGenerator {
             child: const OnBoardingScreen());
         break;
       case ScreenName.signUpScreen:
-        result = ChangeNotifierProvider<AuthProvider>.value(
-          value: authProvider,
-          child: const SignUpScreen(),
-        );
+        result = const SignUpScreen();
+
         break;
       case ScreenName.loginScreen:
-        result = ChangeNotifierProvider<AuthProvider>.value(
-          value: authProvider,
-          child: const LoginScreen(),
-        );
+        result = const LoginScreen();
+
         break;
       case ScreenName.homeScreen:
-        result = MultiProvider(providers: [
-          ChangeNotifierProvider(create: (context) => HomeProvider())
-        ], child: const HomeAppScreen());
+        result = const HomeAppScreen();
         break;
     }
 

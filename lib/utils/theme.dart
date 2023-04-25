@@ -4,7 +4,7 @@ import 'constant.dart';
 
 ThemeData lightTheme = ThemeData(
   fontFamily: 'OpenSans',
-  scaffoldBackgroundColor: const Color(0xFFE5E5E5),
+  // scaffoldBackgroundColor: const Color(0xFFE5E5E5),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
         primary: AppColor.blackDegree,

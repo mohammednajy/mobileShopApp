@@ -6,7 +6,7 @@ class UtilsConfig {
   static final GlobalKey<ScaffoldMessengerState> scaffoldKey =
       GlobalKey<ScaffoldMessengerState>();
 
-   showSnackBarMessage({required String message, required bool status}) {
+ static  showSnackBarMessage({required String message, required bool status}) {
     return scaffoldKey.currentState!.showSnackBar(SnackBar(
       duration: const Duration(seconds: 3),
       content: Text(message),

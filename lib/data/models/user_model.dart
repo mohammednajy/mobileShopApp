@@ -24,29 +24,33 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
-      status: map['status'] as bool,
-      message: map['message'] as String,
-      id: map['data']['id'] as int,
-      name: map['data']['name'] as String,
-      email: map['data']['email'] as String,
-      phone: map['data']['phone'] as String,
-      image: map['data']['image'] as String,
-      points: map['data']['points'] as int,
-      credit: map['data']['credit'] as int,
-      token: map['data']['token'] as String,
+      status: map['status'],
+      message: map['message'],
+      id: map['data']['id'],
+      name: map['data']['name'],
+      email: map['data']['email'],
+      phone: map['data']['phone'],
+      image: map['data']['image'],
+      points: map['data']['points'],
+      credit: map['data']['credit'],
+      token: map['data']['token'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      "id": id,
-      "name": name,
-      "email": email,
-      "phone": phone,
-      "image": image,
-      "points": points,
-      "credit": credit,
-      "token": token,
+      "status": status,
+      "message": message,
+      "data": {
+        "id": id,
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "image": image,
+        "points": points,
+        "credit": credit,
+        "token": token
+      }
     };
   }
 }

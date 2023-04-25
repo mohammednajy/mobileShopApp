@@ -155,7 +155,7 @@ class SignUpScreen extends HookWidget {
                           children: [
                             CustomElevatedButton(
                               text: 'Sign Up',
-                              isLoading: authValue.isLoading,
+                              isLoading: false,
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   authValue.singUp(

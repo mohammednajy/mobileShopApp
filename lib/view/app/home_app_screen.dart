@@ -62,7 +62,7 @@ class _HomeAppScreenState extends State<HomeAppScreen> {
 List<String> icons = [
   AssetPath.homeIcon,
   AssetPath.buyIcon,
-  AssetPath.discoverIcon,
+  AssetPath.category,
   AssetPath.starIcon,
   AssetPath.profileIcon,
 ];
@@ -96,7 +96,7 @@ class BottomNavigationBarItemCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 32,
+      height: index == 2 ? 28 : 32,
       width: 32,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -104,7 +104,13 @@ class BottomNavigationBarItemCustom extends StatelessWidget {
       ),
       child: Image.asset(
         icon,
-        color: selectedIndex == index ? Colors.white : null,
+        color: index == 2
+            ? selectedIndex == index
+                ? Colors.white
+                : Colors.black87
+            : selectedIndex == index
+                ? Colors.white
+                : null,
       ),
     );
   }

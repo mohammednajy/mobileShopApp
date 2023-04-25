@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-
 class DioExceptions implements Exception {
   static late String message;
 
@@ -9,14 +8,13 @@ class DioExceptions implements Exception {
       case DioErrorType.cancel:
         message = "Request to API server was cancelled";
         break;
-      case DioErrorType.connectTimeout:
+      case DioErrorType.connectionTimeout:
         message = "Connection timeout with API server";
         break;
       case DioErrorType.receiveTimeout:
         message = "Receive timeout in connection with API server";
         break;
-      case DioErrorType.response:
-        print('dddddddd ${dioError.message}');
+      case DioErrorType.badResponse:
         message = _handleError(
           dioError.response?.statusCode,
           dioError.response?.data,
@@ -25,8 +23,8 @@ class DioExceptions implements Exception {
       case DioErrorType.sendTimeout:
         message = "Send timeout in connection with API server";
         break;
-      case DioErrorType.other:
-        if (dioError.message.contains("SocketException")) {
+      case DioErrorType.unknown:
+        if (dioError.error.toString().contains("SocketException")) {
           message = 'No Internet';
           break;
         }
