@@ -26,6 +26,8 @@ class AssetPath {
   static const String onboardingImage2 = '${baseImageUrl}onboarding2.png';
   static const String onboardingImage3 = '${baseImageUrl}onboarding3.png';
   static const String mobileImage = '${baseImageUrl}mobile_image.png';
+  static const String productBackground =
+      '${baseImageUrl}product_background.png';
 }
 
 class AppColor {
@@ -34,4 +36,5 @@ class AppColor {
   static const Color sWhite = Color(0xFFECE9F1);
   static const Color gray = Color(0xFF828282);
   static const Color blackDegree = Color(0xFF414138);
+  static const Color black = Colors.black;
 }

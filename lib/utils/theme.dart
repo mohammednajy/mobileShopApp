@@ -7,7 +7,7 @@ ThemeData lightTheme = ThemeData(
   // scaffoldBackgroundColor: const Color(0xFFE5E5E5),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-        primary: AppColor.blackDegree,
+        primary: AppColor.black,
         textStyle: const TextStyle(fontSize: 20),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),

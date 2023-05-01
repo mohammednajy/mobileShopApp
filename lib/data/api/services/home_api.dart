@@ -11,11 +11,11 @@ class HomeApi {
     );
   }
 
-  static Future<Response> getCategoriesList() async {
-    return await BaseClient().get(
-      EndPoints.categoriesEndPoint,
-    );
-  }
+  // static Future<Response> getCategoriesList() async {
+  //   return await BaseClient().get(
+  //     EndPoints.categoriesEndPoint,
+  //   );
+  // }
 
   static Future<Response> getHomeData() async {
     return await BaseClient().get(

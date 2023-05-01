@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobile_shop_application/data/localData/shared_pref.dart';
+import 'package:mobile_shop_application/provider/category_provider.dart';
 import 'package:mobile_shop_application/provider/home_provider.dart';
 import 'package:mobile_shop_application/router/router_services.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,9 @@ class LangInterceptor extends Interceptor {
       AppRouter.navigatorKey.currentContext!,
       listen: false);
   HomeProvider homeLoading = Provider.of<HomeProvider>(
+      AppRouter.navigatorKey.currentContext!,
+      listen: false);
+  CategoryProvider categoryProvider = Provider.of<CategoryProvider>(
       AppRouter.navigatorKey.currentContext!,
       listen: false);
   @override
@@ -34,6 +38,7 @@ class LangInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     authLoading.setLoading(false);
     homeLoading.setLoading(false);
+    categoryProvider.setLoading(false);
     if (response.data["status"] == false) {
       UtilsConfig.showSnackBarMessage(
           message: response.data["message"], status: false);
@@ -45,6 +50,7 @@ class LangInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) {
     authLoading.setLoading(false);
     homeLoading.setLoading(false);
+    categoryProvider.setLoading(false);
     homeLoading.setProductLoading(false);
     final errorMessage = DioExceptions.fromDioError(err);
     UtilsConfig.showSnackBarMessage(message: errorMessage, status: false);

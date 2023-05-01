@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:mobile_shop_application/data/localData/shared_pref.dart';
 import 'package:mobile_shop_application/provider/auth_provider.dart';
+import 'package:mobile_shop_application/provider/category_provider.dart';
 import 'package:mobile_shop_application/provider/home_provider.dart';
 import 'package:mobile_shop_application/utils/locator.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +36,7 @@ Future<void> main(List<String> args) async {
           providers: [
             ChangeNotifierProvider(create: (context) => AuthProvider()),
             ChangeNotifierProvider(create: (context) => HomeProvider()),
+            ChangeNotifierProvider(create: (context) => CategoryProvider()),
           ],
           child: const MobileShopApp(),
         )),

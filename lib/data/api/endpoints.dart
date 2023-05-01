@@ -9,5 +9,6 @@ class EndPoints {
   static const String homeEndPoint = 'home';
   static const String favoriteEndPoint = 'favorites';
   static const String addDeleteFavoriteEndPoint = 'favorites';
+  static const String categoryProductList = 'categories/';
 
 }

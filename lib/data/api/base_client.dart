@@ -13,10 +13,10 @@ class BaseClient {
   }
 
   final dio = Dio(BaseOptions(
-    connectTimeout: const Duration(seconds: 15),
+    connectTimeout: const Duration(seconds: 30),
     baseUrl: EndPoints.baseUrl,
     receiveDataWhenStatusError: true,
-    receiveTimeout: const Duration(seconds: 15),
+    receiveTimeout: const Duration(seconds: 30),
   ))
     ..interceptors.addAll(
       [

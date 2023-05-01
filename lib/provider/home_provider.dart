@@ -7,12 +7,12 @@ import 'package:mobile_shop_application/data/models/product_model.dart';
 
 class HomeProvider extends Loading {
   List<String> banners = [];
-  List<CategoryModel> categories = [];
+  // List<CategoryModel> categories = [];
   List<ProductModel> products = [];
   List<ProductModel> favoriteProducts = [];
   bool homeProductLoading = false;
   List<int> favoriteId = [];
-  getBanners() async {
+  Future<void> getBanners() async {
     setLoading(true);
     Response response = await HomeApi.getBannerList();
     if (response.statusCode == 200) {
@@ -23,19 +23,19 @@ class HomeProvider extends Loading {
     }
   }
 
-  getCategories() async {
-    setLoading(true);
+  // Future<void> getCategories() async {
+  //   setLoading(true);
 
-    Response response = await HomeApi.getCategoriesList();
-    if (response.statusCode == 200) {
-      categories = (response.data["data"]["data"] as List)
-          .map((e) => CategoryModel.fromJson(e))
-          .toList();
-      notifyListeners();
-    }
-  }
+  //   Response response = await HomeApi.getCategoriesList();
+  //   if (response.statusCode == 200) {
+  //     categories = (response.data["data"]["data"] as List)
+  //         .map((e) => CategoryModel.fromJson(e))
+  //         .toList();
+  //     notifyListeners();
+  //   }
+  // }
 
-  getHomeData() async {
+  Future<void> getHomeData() async {
     setProductLoading(true);
     Response response = await HomeApi.getHomeData();
 
@@ -48,7 +48,7 @@ class HomeProvider extends Loading {
     setProductLoading(false);
   }
 
-  getFavorite() async {
+  Future<void> getFavorite() async {
     favoriteId = [];
     notifyListeners();
     Response response = await HomeApi.getFavoriteProducts();
@@ -64,20 +64,23 @@ class HomeProvider extends Loading {
   }
 
   addFavorite({required int id}) async {
+    favoriteId.add(id);
+    notifyListeners();
     Response response = await HomeApi.addDeleteFavorite(id: id);
     if (response.statusCode == 200 && response.data["status"]) {
-      print(response.data);
-      print('iddddd ' + response.data["data"]["product"]["id"].toString());
-      favoriteId.add(response.data["data"]["product"]["id"]);
+      // favoriteId.add(response.data["data"]["product"]["id"]);
       // notifyListeners();
+      print('add');
     }
   }
 
   deleteFavorite({required int id}) async {
+    favoriteId.remove(id);
+    notifyListeners();
     Response response = await HomeApi.addDeleteFavorite(id: id);
     if (response.statusCode == 200 && response.data["status"]) {
-      print(response.data);
-      favoriteId.remove(response.data["data"]["product"]["id"]);
+      // favoriteId.remove(response.data["data"]["product"]["id"]);
+      print('delete');
       // notifyListeners();
     }
   }

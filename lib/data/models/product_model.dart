@@ -6,7 +6,7 @@ class ProductModel {
   final String image;
   final String name;
   final String description;
-  // final List<String>? images;
+  final List<String> images;
   final bool? inFavorites;
   final bool? inCart;
 
@@ -18,7 +18,7 @@ class ProductModel {
     required this.image,
     required this.name,
     required this.description,
-    // required this.images,
+    required this.images,
     required this.inFavorites,
     required this.inCart,
   });
@@ -32,7 +32,9 @@ class ProductModel {
       image: json['image'],
       name: json['name'],
       description: json['description'],
-      // images: List.castFrom(json['images']),
+      images: json['images'] == null
+          ? []
+          : List.castFrom<dynamic, String>(json['images']),
       inFavorites: json['in_favorites'],
       inCart: json['in_cart'],
     );

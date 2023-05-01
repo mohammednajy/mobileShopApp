@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_shop_application/utils/constant.dart';
 import 'package:mobile_shop_application/utils/locale_keys.g.dart';
+import 'package:mobile_shop_application/view/app/category/category_screen.dart';
 import 'package:mobile_shop_application/view/app/home/home_screen.dart';
 
 class HomeAppScreen extends StatefulWidget {
@@ -62,7 +63,7 @@ class _HomeAppScreenState extends State<HomeAppScreen> {
 List<String> icons = [
   AssetPath.homeIcon,
   AssetPath.buyIcon,
-  AssetPath.category,
+  AssetPath.discoverIcon,
   AssetPath.starIcon,
   AssetPath.profileIcon,
 ];
@@ -71,9 +72,7 @@ List<Widget> taps = [
   const Center(
     child: Text('1'),
   ),
-  const Center(
-    child: Text('2'),
-  ),
+  const CategoryScreen(),
   const Center(
     child: Text('3'),
   ),
@@ -96,7 +95,7 @@ class BottomNavigationBarItemCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: index == 2 ? 28 : 32,
+      height: 32,
       width: 32,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -104,13 +103,7 @@ class BottomNavigationBarItemCustom extends StatelessWidget {
       ),
       child: Image.asset(
         icon,
-        color: index == 2
-            ? selectedIndex == index
-                ? Colors.white
-                : Colors.black87
-            : selectedIndex == index
-                ? Colors.white
-                : null,
+        color: selectedIndex == index ? Colors.white : null,
       ),
     );
   }

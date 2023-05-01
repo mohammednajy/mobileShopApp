@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,24 +32,18 @@ class BannersSection extends StatelessWidget {
                     borderRadius: BorderRadius.circular(
                   6,
                 )),
-                child: Image.network(
-                  i,
-                  fit: BoxFit.fill,
-                  loadingBuilder: (context, child, progress) {
-                    if (progress == null) return child;
-                    return SkeletonLoader(
-                        builder: Container(
-                      color: Colors.white,
-                      height: 180,
-                    ));
-                  },
-                  errorBuilder: (context, child, loadingProgress) {
-                    return const Icon(
-                      Icons.error,
-                      size: 30,
-                    );
-                  },
-                ),
+                child: CachedNetworkImage(
+                    imageUrl: i,
+                    fit: BoxFit.fill,
+                    placeholder: (context, url) => SkeletonLoader(
+                            builder: Container(
+                          color: Colors.white,
+                          height: 180,
+                        )),
+                    errorWidget: (context, url, error) => const Icon(
+                          Icons.error,
+                          size: 30,
+                        )),
               );
             },
           );
