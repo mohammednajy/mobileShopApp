@@ -22,7 +22,7 @@ ThemeData lightTheme = ThemeData(
       statusBarBrightness: Brightness.light, //<-- For iOS SEE HERE (dark icons)
     ),
   ),
-  textTheme: const TextTheme(
+  textTheme: TextTheme(
       headlineMedium: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 22,
@@ -37,5 +37,10 @@ ThemeData lightTheme = ThemeData(
           fontWeight: FontWeight.w500,
           color: Colors.black,
           fontSize: 40,
-          fontFamily: '')),
+          fontFamily: ''),
+      bodySmall: TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+      )),
 );

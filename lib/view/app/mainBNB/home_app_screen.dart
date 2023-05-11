@@ -5,6 +5,8 @@ import 'package:mobile_shop_application/utils/locale_keys.g.dart';
 import 'package:mobile_shop_application/view/app/category/category_screen.dart';
 import 'package:mobile_shop_application/view/app/home/home_screen.dart';
 
+import '../cart/products_cart_screen.dart';
+
 class HomeAppScreen extends StatefulWidget {
   const HomeAppScreen({super.key});
 
@@ -69,9 +71,7 @@ List<String> icons = [
 ];
 List<Widget> taps = [
   const HomeScreen(),
-  const Center(
-    child: Text('1'),
-  ),
+  const CartScreen(),
   const CategoryScreen(),
   const Center(
     child: Text('3'),

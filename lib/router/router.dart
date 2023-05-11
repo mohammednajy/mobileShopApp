@@ -5,7 +5,7 @@ import 'package:mobile_shop_application/provider/home_provider.dart';
 import 'package:mobile_shop_application/view/app/category/category_screen.dart';
 import 'package:mobile_shop_application/view/app/category/product_details_screen.dart';
 import 'package:mobile_shop_application/view/app/category/products_screen.dart';
-import 'package:mobile_shop_application/view/app/home_app_screen.dart';
+import 'package:mobile_shop_application/view/app/mainBNB/home_app_screen.dart';
 import '../data/models/category_model.dart';
 import '../provider/auth_provider.dart';
 import '../provider/onboarding_provider.dart';

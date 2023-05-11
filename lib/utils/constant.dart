@@ -36,5 +36,8 @@ class AppColor {
   static const Color sWhite = Color(0xFFECE9F1);
   static const Color gray = Color(0xFF828282);
   static const Color blackDegree = Color(0xFF414138);
+  static const Color red = Color(0xFFEB5757);
+  static const Color green = Color(0xFF38972E);
+
   static const Color black = Colors.black;
 }
